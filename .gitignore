@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+# Vector database (generated, do not commit)
+data/vector_db/
+
+# macOS metadata
+.DS_Store
+
+#vector database files
+*.db
+*.sqlite
+vector_store/

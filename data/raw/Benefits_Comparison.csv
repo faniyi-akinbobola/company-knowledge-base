@@ -1,0 +1,17 @@
+Benefit_Category,Benefit_Type,Employee_Cost_Monthly,Company_Contribution,Annual_Value_Per_Employee,Eligibility
+Health Insurance,PPO Plan,$120 (individual),~70% of premium,"$8,000-12,000",Full-Time
+Health Insurance,HDHP + HSA,$60 (individual),~80% of premium,"$6,000-10,000",Full-Time
+Dental Insurance,Delta Dental,$15 (individual),~60% of premium,$500,Full-Time
+Vision Insurance,VSP Vision,$8 (individual),~70% of premium,$250,Full-Time
+401k Match,Employer Match,$0,100% match up to 6%,"$6,000 (avg)",All employees
+401k Match,Vesting,$0,Immediate vesting,$0,All employees
+PTO,Vacation Days,$0,Included,"$15,400 (20 days)",Full-Time
+PTO,Sick Days,$0,Included,"$3,850 (10 days)",Full-Time
+Parental Leave,Maternity,$0,18 weeks paid,"$34,600 (avg)",Full-Time
+Parental Leave,Paternity,$0,6 weeks paid,"$11,500 (avg)",Full-Time
+Life Insurance,Basic Life,$0,1x salary coverage,"$500-1,000",Full-Time (company-paid)
+Disability Insurance,Short-Term Disability,$0,60% salary up to 90 days,"$1,200",Full-Time (company-paid)
+Disability Insurance,Long-Term Disability,$0,60% salary until age 65,$800,Full-Time (company-paid)
+Professional Development,Annual Stipend,$0,"$1,500/year","$1,500",Full-Time
+Gym Subsidy,Monthly Subsidy,$0 ($50 subsidy),$50/month,$600,All employees
+Commuter Benefits,Pre-Tax Savings,$0 (pre-tax),Up to $315/month,"$1,000-2,000",All employees

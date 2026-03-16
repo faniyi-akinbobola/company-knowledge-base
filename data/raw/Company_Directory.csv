@@ -1,0 +1,21 @@
+Employee_ID,First_Name,Last_Name,Title,Department,Manager,Email,Extension,Office_Location,Start_Date,Employment_Type
+EMP001,Marcus,Chen,CEO,Executive,,marcus.chen@apextech.solutions,1000,San Francisco HQ,2018-01-15,Full-Time
+EMP002,Priya,Patel,CTO,Engineering,Marcus Chen,priya.patel@apextech.solutions,1001,San Francisco HQ,2018-03-01,Full-Time
+EMP003,David,Morrison,CFO,Finance,Marcus Chen,david.morrison@apextech.solutions,1002,San Francisco HQ,2018-06-01,Full-Time
+EMP004,Sarah,Kim,CPO,Product,Marcus Chen,sarah.kim@apextech.solutions,1003,San Francisco HQ,2018-09-15,Full-Time
+EMP005,James,Walker,CHRO,People Ops,Marcus Chen,james.walker@apextech.solutions,2100,San Francisco HQ,2019-01-10,Full-Time
+EMP006,Elena,Rodriguez,CMO,Marketing,Marcus Chen,elena.rodriguez@apextech.solutions,1005,Austin,2019-04-01,Full-Time
+EMP007,Michael,Torres,VP Sales,Sales,Marcus Chen,michael.torres@apextech.solutions,3100,San Francisco HQ,2019-07-15,Full-Time
+EMP008,Jennifer,Anderson,VP Engineering,Engineering,Priya Patel,jennifer.anderson@apextech.solutions,1007,San Francisco HQ,2019-10-01,Full-Time
+EMP009,Robert,Thompson,VP Product,Product,Sarah Kim,robert.thompson@apextech.solutions,1008,San Francisco HQ,2020-02-01,Full-Time
+EMP010,Lisa,Martinez,VP Customer Success,Customer Success,Marcus Chen,lisa.martinez@apextech.solutions,3200,San Francisco HQ,2020-05-15,Full-Time
+EMP011,Kevin,Lee,Director Engineering,Engineering,Jennifer Anderson,kevin.lee@apextech.solutions,1010,San Francisco HQ,2020-08-01,Full-Time
+EMP012,Amanda,Garcia,Director Marketing,Marketing,Elena Rodriguez,amanda.garcia@apextech.solutions,1011,Austin,2021-01-15,Full-Time
+EMP013,Daniel,Williams,Senior Engineer,Engineering,Jennifer Anderson,daniel.williams@apextech.solutions,1012,San Francisco HQ,2021-06-01,Full-Time
+EMP014,Michelle,Brown,Product Manager,Product,Lisa Martinez,michelle.brown@apextech.solutions,1013,San Francisco HQ,2021-09-15,Full-Time
+EMP015,Christopher,Davis,Sales Manager,Sales,Michael Torres,christopher.davis@apextech.solutions,3101,Austin,2022-01-10,Full-Time
+EMP016,Rachel,Miller,HR Manager,People Ops,James Walker,rachel.miller@apextech.solutions,2101,San Francisco HQ,2022-04-01,Full-Time
+EMP017,Matthew,Wilson,Marketing Manager,Marketing,Elena Rodriguez,matthew.wilson@apextech.solutions,1015,Austin,2022-07-15,Full-Time
+EMP018,Emily,Moore,Customer Success Manager,Customer Success,Robert Thompson,emily.moore@apextech.solutions,3201,San Francisco HQ,2023-01-10,Full-Time
+EMP019,Brian,Taylor,Software Engineer,Engineering,Kevin Lee,brian.taylor@apextech.solutions,1017,San Francisco HQ,2023-06-01,Full-Time
+EMP020,Nicole,Thomas,Data Analyst,Product,Lisa Martinez,nicole.thomas@apextech.solutions,1018,Remote,2024-01-15,Full-Time
