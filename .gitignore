@@ -19,4 +19,3 @@ data/vector_db/
 #vector database files
 *.db
 *.sqlite
-vector_store/
