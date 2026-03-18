@@ -14,6 +14,7 @@ load_dotenv()
 
 DATA_PATH = "data/raw"
 VD_PATH = "data/vector_db"
+EMBEDDING_MODEL = "text-embedding-3-large"
 
 if(not os.getenv("OPENAI_API_KEY")):
     raise ValueError("OPENAI_API_KEY is not set in the environment variables.")
@@ -132,7 +133,7 @@ def create_vector_store(chunks):
     Create a Chroma vector store from document chunks and persist it.
     """
     #create embeddings
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-large", dimensions=3072)
+    embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL, dimensions=3072)
 
 
     #create vector store
