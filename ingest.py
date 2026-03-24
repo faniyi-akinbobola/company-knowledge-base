@@ -7,8 +7,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import  OpenAIEmbeddings
 from langchain_chroma import Chroma
 from dotenv import load_dotenv
-# from langchain.schema import Document
-
+from langchain_core.documents import Document
 
 load_dotenv()
 
@@ -32,15 +31,15 @@ def load_documents(data_path):
         path = os.path.join(data_path, file)
 
         if file.endswith(".pdf"):
-            loader = PyPDFLoader(file)
+            loader = PyPDFLoader(path)
         elif file.endswith(".csv"):
-            loader = CSVLoader(file)
+            loader = CSVLoader(path)
         elif file.endswith(".md"):
-            loader = UnstructuredMarkdownLoader(file)
+            loader = UnstructuredMarkdownLoader(path)
         elif file.endswith(".xlsx"):
-            loader = UnstructuredExcelLoader(file)
+            loader = UnstructuredExcelLoader(path)
         elif file.endswith(".docx"):
-            loader = Docx2txtLoader(file)
+            loader = Docx2txtLoader(path)
         else:
             continue
 
@@ -122,8 +121,8 @@ def chunk_docs(docs):
     """
     split docs into smaller chunks
     """
-    text_splitter = RecursiveCharacterTextSplitter(chunkSize=1000, chunkOverlap=200)
-    chunks = text_splitter.create_documents(docs)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=300)
+    chunks = text_splitter.split_documents(docs)
 
     return chunks
 
@@ -133,7 +132,7 @@ def create_vector_store(chunks):
     Create a Chroma vector store from document chunks and persist it.
     """
     #create embeddings
-    embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL, dimensions=3072)
+    embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL, dimensions=1536)
 
 
     #create vector store
@@ -142,6 +141,8 @@ def create_vector_store(chunks):
         documents=chunks,
         persist_directory=VD_PATH
     )
+    print(f"Vector store contains {vector_store._collection.count()} documents")  # ✅ Verify
+
 
     return vector_store
 
@@ -159,11 +160,12 @@ def ingest():
 
     print("chunking the refined docs")
     doc_chunks = chunk_docs(refined_docs)
-    print(f"documents have been chunked into {len(doc_chunks)}")
+    print(f"documents have been chunked into {len(doc_chunks)} chunks")
 
     print("creating vector store")
-    vector_store = vector_store(doc_chunks)
+    create_vector_store(doc_chunks)
+    print("Vector store created successfully!")
 
 
-if __name__  == "":
+if __name__ == "__main__":
     ingest()
