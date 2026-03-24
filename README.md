@@ -6,9 +6,6 @@ An internal AI-powered assistant that allows ApexTech employees to query company
 
 ## 📸 Demo
 
-
-![User Mode](docs/user_mode.png)
-
 > Developer Mode — Full metrics including token usage, cost, latency, and similarity scores
 
 
