@@ -280,7 +280,6 @@ This generates a public URL like `https://abc123.ngrok-free.app` that anyone can
 
 - What is the stock price of ApexTech?
 - What is the salary range for a Senior Engineer?
-- How many employees does ApexTech have globally?
 - Can you compare ApexTech's benefits to Google's?
 
 ---
