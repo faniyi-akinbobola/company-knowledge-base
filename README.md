@@ -6,8 +6,12 @@ An internal AI-powered assistant that allows ApexTech employees to query company
 
 ## 📸 Demo
 
-> Developer Mode — Full metrics including token usage, cost, latency, and similarity scores
+### 👤 User Mode — Clean responses with sources only
+![User Mode](docs/user_mode.png)
 
+### 🛠️ Developer Mode — Full metrics including token usage, cost, latency, and similarity scores
+![Developer Mode - Answer & Retrieved Documents](docs/dev_mode1.png)
+![Developer Mode - Token Usage, Cost & Latency](docs/dev_mode2.png)
 
 ---
 
@@ -136,7 +140,7 @@ company-knowledge-base/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/company-knowledge-base.git
+git clone https://github.com/faniyi-akinbobola/company-knowledge-base.git
 cd company-knowledge-base
 ```
 

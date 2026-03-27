@@ -1,14 +1,18 @@
-# Welcome to Chainlit! 🚀🤖
+# 🏢 ApexTech Solutions — AI Assistant
 
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
+Welcome! I'm your internal AI assistant, here to help you find information from company documentation.
 
-## Useful Links 🔗
+## What I can help with
+- 📋 HR policies and procedures
+- 🏠 Remote work policy
+- 🎁 Benefits and compensation
+- 🖥️ IT support and security
+- 🚀 Onboarding and training
+- 💰 Expense policies
+- 📁 Company directory
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/k73SQ3FyUh) to ask questions, share your projects, and connect with other developers! 💬
+## How to use
+- Select **User** mode for clean answers with sources
+- Select **Developer** mode for full pipeline metrics
 
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
-
-## Welcome screen
-
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+> If the information isn't available in the documentation, I'll let you know.
