@@ -12,6 +12,7 @@ dependencies = [
     "langchain>=1.2.12",
     "langchain-chroma>=1.1.0",
     "langchain-community>=0.4.1",
+    "langchain-huggingface>=1.2.2",
     "langchain-openai>=1.1.11",
     "markdown>=3.10.2",
     "msoffcrypto-tool>=6.0.0",

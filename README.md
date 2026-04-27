@@ -7,9 +7,11 @@ An internal AI-powered assistant that allows ApexTech employees to query company
 ## 📸 Demo
 
 ### 👤 User Mode — Clean responses with sources only
+
 ![User Mode](docs/user_mode.png)
 
 ### 🛠️ Developer Mode — Full metrics including token usage, cost, latency, and similarity scores
+
 ![Developer Mode - Answer & Retrieved Documents](docs/dev_mode1.png)
 ![Developer Mode - Token Usage, Cost & Latency](docs/dev_mode2.png)
 
@@ -117,15 +119,15 @@ company-knowledge-base/
 
 ## ⚙️ Tech Stack
 
-| Component | Technology |
-|-----------|------------|
-| **LLM** | OpenAI `gpt-4o-mini` |
-| **Embeddings** | OpenAI `text-embedding-3-large` (1536 dimensions) |
-| **Vector Store** | ChromaDB |
-| **RAG Framework** | LangChain |
-| **UI** | Chainlit |
-| **Package Manager** | uv |
-| **Language** | Python 3.12 |
+| Component           | Technology                                        |
+| ------------------- | ------------------------------------------------- |
+| **LLM**             | OpenAI `gpt-4o-mini`                              |
+| **Embeddings**      | OpenAI `text-embedding-3-large` (1536 dimensions) |
+| **Vector Store**    | ChromaDB                                          |
+| **RAG Framework**   | LangChain                                         |
+| **UI**              | Chainlit                                          |
+| **Package Manager** | uv                                                |
+| **Language**        | Python 3.12                                       |
 
 ---
 
@@ -175,6 +177,7 @@ uv run main.py
 ```
 
 `main.py` will automatically:
+
 1. ✅ Check if the vector store exists and has documents
 2. ✅ Run the ingestion pipeline if the vector store is empty
 3. ✅ Test the RAG pipeline with a sample query
@@ -187,11 +190,13 @@ uv run main.py
 The UI has two modes selectable at the start of each session:
 
 ### 👤 User Mode
+
 - Clean, readable answers
 - Sources listed at the bottom
 - No technical metrics
 
 ### 🛠️ Developer Mode
+
 - Everything in User Mode
 - Retrieved documents with **similarity scores**
 - **Token usage** (input / output / total)
@@ -204,18 +209,18 @@ The UI has two modes selectable at the start of each session:
 
 Every query tracked in Developer Mode:
 
-| Metric | Description |
-|--------|-------------|
-| `similarity_score` | ChromaDB cosine distance (lower = more similar) |
+| Metric                  | Description                                         |
+| ----------------------- | --------------------------------------------------- |
+| `similarity_score`      | ChromaDB cosine distance (lower = more similar)     |
 | `similarity_percentage` | Human-readable similarity `((2 - score) / 2) * 100` |
-| `avg_similarity_score` | Average similarity across all retrieved chunks |
-| `input_tokens` | Tokens sent to the LLM |
-| `output_tokens` | Tokens returned by the LLM |
-| `total_tokens` | Total tokens used |
-| `input_cost` | Cost of input tokens in USD |
-| `output_cost` | Cost of output tokens in USD |
-| `total_cost` | Total query cost in USD |
-| `latency` | End-to-end response time in seconds |
+| `avg_similarity_score`  | Average similarity across all retrieved chunks      |
+| `input_tokens`          | Tokens sent to the LLM                              |
+| `output_tokens`         | Tokens returned by the LLM                          |
+| `total_tokens`          | Total tokens used                                   |
+| `input_cost`            | Cost of input tokens in USD                         |
+| `output_cost`           | Cost of output tokens in USD                        |
+| `total_cost`            | Total query cost in USD                             |
+| `latency`               | End-to-end response time in seconds                 |
 
 ---
 
@@ -245,16 +250,19 @@ uv run main.py
 ## 🌐 Sharing the UI
 
 ### Local network
+
 The UI runs on `http://localhost:8000` by default.
 
 ### Public URL (via ngrok)
 
 **Terminal 1:**
+
 ```bash
 uv run main.py
 ```
 
 **Terminal 2:**
+
 ```bash
 ngrok http 8000
 ```
@@ -269,16 +277,16 @@ This generates a public URL like `https://abc123.ngrok-free.app` that anyone can
 
 ### ✅ Questions the assistant can answer
 
-| Document | Question |
-|----------|----------|
-| `remote_work_policy.md` | What are the remote work options available? |
-| `employee_handbook.md` | How many vacation days do employees get? |
-| `onboarding_guide.md` | What should I do on my first day? |
-| `expense_policy.md` | How do I submit an expense report? |
-| `it_support_guide.md` | How do I reset my password? |
-| `security_policy.md` | What are the password requirements? |
-| `benefits.md` | What health insurance options are available? |
-| `Company_Directory.csv` | Who is the HR manager? |
+| Document                | Question                                     |
+| ----------------------- | -------------------------------------------- |
+| `remote_work_policy.md` | What are the remote work options available?  |
+| `employee_handbook.md`  | How many vacation days do employees get?     |
+| `onboarding_guide.md`   | What should I do on my first day?            |
+| `expense_policy.md`     | How do I submit an expense report?           |
+| `it_support_guide.md`   | How do I reset my password?                  |
+| `security_policy.md`    | What are the password requirements?          |
+| `benefits.md`           | What health insurance options are available? |
+| `Company_Directory.csv` | Who is the HR manager?                       |
 
 ### ❌ Questions it will say it doesn't know
 
@@ -290,9 +298,9 @@ This generates a public URL like `https://abc123.ngrok-free.app` that anyone can
 
 ## 🔒 Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `OPENAI_API_KEY` | Your OpenAI API key | ✅ Yes |
+| Variable         | Description         | Required |
+| ---------------- | ------------------- | -------- |
+| `OPENAI_API_KEY` | Your OpenAI API key | ✅ Yes   |
 
 ---
 
