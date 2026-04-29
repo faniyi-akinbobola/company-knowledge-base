@@ -58,8 +58,7 @@ company-knowledge-base/
 │   └── results/                # Timestamped JSON eval reports
 ├── data/
 │   ├── raw/                    # Source .md documents (canonical)
-│   └── vector_db/              # Chroma persistent store
-├── docs/                       # Screenshots for README
+│   └── vector_db/              # Chroma persistent store                      
 ├── main.py                     # Entry point — ingest check + UI launch
 └── chainlit.md                 # Chainlit welcome screen
 ```
@@ -144,5 +143,47 @@ uv run python evals/runners/run_evals.py --mode ci
 ## 🔭 LangSmith Tracing
 
 All LLM calls (UI + evals) are automatically traced to LangSmith when `LANGCHAIN_TRACING_V2=true` is set. No extra code required. View traces at [smith.langchain.com](https://smith.langchain.com).
+
+---
+
+## 🚀 Deploying to HuggingFace Spaces
+
+### 1. Create a new Space
+
+Go to [huggingface.co/new-space](https://huggingface.co/new-space):
+- **SDK**: Docker
+- **Visibility**: Private (internal tool)
+- **Hardware**: CPU Basic (free) — the app peaks at ~470MB RAM, well within limits
+
+### 2. Push this repo to your Space
+
+```bash
+# Add your Space as a remote (replace YOUR_USERNAME and SPACE_NAME)
+git remote add space https://huggingface.co/spaces/YOUR_USERNAME/SPACE_NAME
+
+# Push master to the Space
+git push space master
+```
+
+HuggingFace will automatically build the Docker image and launch the app.
+
+### 3. Set Secrets
+
+In your Space → **Settings → Repository secrets**, add:
+
+| Secret | Value |
+|--------|-------|
+| `OPENAI_API_KEY` | `sk-...` |
+| `LANGCHAIN_API_KEY` | `lsv2_...` (optional, for tracing) |
+| `LANGCHAIN_TRACING_V2` | `true` (optional) |
+| `LANGCHAIN_PROJECT` | `company-knowledge-base` (optional) |
+
+### What happens at build time
+
+The `Dockerfile` does the following during image build (no secrets needed):
+1. Installs all Python dependencies via `uv sync`
+2. Downloads and caches both HuggingFace models (`all-MiniLM-L6-v2`, `ms-marco-MiniLM-L-6-v2`)
+3. Runs `rag/ingest.py` to build the ChromaDB vector store from the raw documents
+4. Bakes everything into the image → **zero cold-start delay**
 
 ---
