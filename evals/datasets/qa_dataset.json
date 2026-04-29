@@ -1,0 +1,422 @@
+[
+  {
+    "question": "What is the company's remote work policy?",
+    "expected_answer": "Employees may work remotely up to 3 days per week with manager approval.",
+    "source_doc": "remote_work_policy.md",
+    "difficulty": "easy",
+    "type": "factual"
+  },
+  {
+    "question": "How many remote days per week are allowed?",
+    "expected_answer": "Up to 3 days per week.",
+    "source_doc": "remote_work_policy.md",
+    "difficulty": "easy",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "Do I need approval to work from home?",
+    "expected_answer": "Yes, hybrid remote work requires manager approval.",
+    "source_doc": "remote_work_policy.md",
+    "difficulty": "easy",
+    "type": "factual"
+  },
+  {
+    "question": "Can I work remotely 5 days a week?",
+    "expected_answer": "No, the policy allows up to 3 days per week.",
+    "source_doc": "remote_work_policy.md",
+    "difficulty": "hard",
+    "type": "negation_trap"
+  },
+  {
+    "question": "What equipment does the company provide for remote work?",
+    "expected_answer": "The company provides a laptop; employees are responsible for their own internet connection.",
+    "source_doc": "remote_work_policy.md",
+    "difficulty": "hard",
+    "type": "specific_detail"
+  },
+  {
+    "question": "What is the maximum reimbursable meal expense per day?",
+    "expected_answer": "$75 per day for meals while traveling.",
+    "source_doc": "expense_policy.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "What is the receipt threshold for expense claims?",
+    "expected_answer": "Receipts are required for expenses over $25.",
+    "source_doc": "expense_policy.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "How many days do I have to submit an expense report?",
+    "expected_answer": "Within 30 days of incurring the expense.",
+    "source_doc": "expense_policy.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "What is the monthly home office stipend?",
+    "expected_answer": "$75 per month internet stipend for full-time remote employees.",
+    "source_doc": "remote_work_policy.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "What is the per diem limit for domestic travel?",
+    "expected_answer": "$500 per day for domestic travel.",
+    "source_doc": "expense_policy.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "Can I expense alcohol on a client dinner?",
+    "expected_answer": "No, alcohol is not reimbursable.",
+    "source_doc": "expense_policy.md",
+    "difficulty": "hard",
+    "type": "negation_trap"
+  },
+  {
+    "question": "What is the gift limit per client per year?",
+    "expected_answer": "$50 per client per year.",
+    "source_doc": "expense_policy.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "How many vacation days do full-time employees accrue per year?",
+    "expected_answer": "20 days per year.",
+    "source_doc": "hr_policies.md",
+    "difficulty": "easy",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "How much vacation do I accrue per month?",
+    "expected_answer": "1.67 days per month.",
+    "source_doc": "hr_policies.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "What is the maximum vacation carryover?",
+    "expected_answer": "Up to 10 days can be carried over to the next year.",
+    "source_doc": "hr_policies.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "How many sick days are employees entitled to annually?",
+    "expected_answer": "10 sick days per year.",
+    "source_doc": "hr_policies.md",
+    "difficulty": "easy",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "What is the sick leave accrual rate per month?",
+    "expected_answer": "0.83 days per month.",
+    "source_doc": "hr_policies.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "What is the overtime pay rate?",
+    "expected_answer": "1.5 times the regular hourly rate.",
+    "source_doc": "hr_policies.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "Who must approve salary increases above the standard band?",
+    "expected_answer": "Not found",
+    "source_doc": null,
+    "difficulty": "hard",
+    "type": "out_of_scope"
+  },
+  {
+    "question": "How many days of sick leave before a medical certificate is required?",
+    "expected_answer": "After 5 consecutive sick days.",
+    "source_doc": "hr_policies.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "What is the HR confidential email address?",
+    "expected_answer": "hr-confidential@apextech.solutions",
+    "source_doc": "hr_policies.md",
+    "difficulty": "hard",
+    "type": "specific_contact"
+  },
+  {
+    "question": "Can sick days be carried over to the next year?",
+    "expected_answer": "No, sick days do not carry over.",
+    "source_doc": "hr_policies.md",
+    "difficulty": "hard",
+    "type": "negation_trap"
+  },
+  {
+    "question": "What should I do if I receive a phishing email?",
+    "expected_answer": "Do not click any links; report it to security@apextech.com immediately.",
+    "source_doc": "security_policy.md",
+    "difficulty": "easy",
+    "type": "procedure"
+  },
+  {
+    "question": "What is the security team's email address?",
+    "expected_answer": "security@apextech.com",
+    "source_doc": "security_policy.md",
+    "difficulty": "hard",
+    "type": "specific_contact"
+  },
+  {
+    "question": "How often must passwords be changed?",
+    "expected_answer": "Every 90 days.",
+    "source_doc": "security_policy.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "What is the minimum password length required?",
+    "expected_answer": "At least 12 characters.",
+    "source_doc": "security_policy.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "Is multi-factor authentication mandatory?",
+    "expected_answer": "Yes, MFA is mandatory for all company systems.",
+    "source_doc": "security_policy.md",
+    "difficulty": "easy",
+    "type": "factual"
+  },
+  {
+    "question": "Can I install personal software on a company laptop?",
+    "expected_answer": "No, only IT-approved software may be installed.",
+    "source_doc": "it_support_guide.md",
+    "difficulty": "hard",
+    "type": "negation_trap"
+  },
+  {
+    "question": "How do I request new software installation?",
+    "expected_answer": "Submit a request through the IT helpdesk portal.",
+    "source_doc": "it_support_guide.md",
+    "difficulty": "easy",
+    "type": "procedure"
+  },
+  {
+    "question": "What is the IT helpdesk phone number?",
+    "expected_answer": "The IT helpdesk can be reached at the number listed in the IT support guide.",
+    "source_doc": "it_support_guide.md",
+    "difficulty": "hard",
+    "type": "specific_contact"
+  },
+  {
+    "question": "What is the company's 401(k) matching policy?",
+    "expected_answer": "The company matches 100% of contributions up to 4% of salary.",
+    "source_doc": "benefits.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "When am I eligible for the 401(k) match?",
+    "expected_answer": "After 6 months of employment.",
+    "source_doc": "benefits.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "Does the company offer dental insurance?",
+    "expected_answer": "Yes, dental and vision insurance are included in the benefits package.",
+    "source_doc": "benefits.md",
+    "difficulty": "easy",
+    "type": "factual"
+  },
+  {
+    "question": "What is the annual wellness reimbursement?",
+    "expected_answer": "$500 per year for wellness-related expenses.",
+    "source_doc": "benefits.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "What qualifies as a wellness expense?",
+    "expected_answer": "Gym memberships, fitness equipment, and mental health apps qualify.",
+    "source_doc": "benefits.md",
+    "difficulty": "hard",
+    "type": "specific_detail"
+  },
+  {
+    "question": "How do I enroll in health insurance?",
+    "expected_answer": "During the annual open enrollment period or within 30 days of a qualifying life event.",
+    "source_doc": "benefits.md",
+    "difficulty": "hard",
+    "type": "procedure"
+  },
+  {
+    "question": "What happens to my benefits if I work part-time?",
+    "expected_answer": "Part-time employees working under 20 hours per week are not eligible for full benefits.",
+    "source_doc": "benefits.md",
+    "difficulty": "hard",
+    "type": "specific_detail"
+  },
+  {
+    "question": "What is the onboarding duration for new employees?",
+    "expected_answer": "The onboarding program lasts 90 days.",
+    "source_doc": "onboarding_guide.md",
+    "difficulty": "easy",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "Who is assigned to a new employee during onboarding?",
+    "expected_answer": "A buddy mentor is assigned during onboarding.",
+    "source_doc": "onboarding_guide.md",
+    "difficulty": "easy",
+    "type": "factual"
+  },
+  {
+    "question": "What training is mandatory in the first week?",
+    "expected_answer": "Cybersecurity Awareness and Workplace Conduct & Anti-Harassment training must be completed in the first 30 days.",
+    "source_doc": "onboarding_guide.md",
+    "difficulty": "hard",
+    "type": "ordered_list"
+  },
+  {
+    "question": "What systems must be set up on day one?",
+    "expected_answer": "Laptop, email, and Slack access must be configured on day one.",
+    "source_doc": "onboarding_guide.md",
+    "difficulty": "hard",
+    "type": "ordered_list"
+  },
+  {
+    "question": "When is the 30-day check-in scheduled?",
+    "expected_answer": "Not found",
+    "source_doc": null,
+    "difficulty": "hard",
+    "type": "out_of_scope"
+  },
+  {
+    "question": "What is the annual training budget per employee?",
+    "expected_answer": "$1,500 per employee per year for external training.",
+    "source_doc": "training_materials.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "What external training platforms does the company support?",
+    "expected_answer": "Coursera, Udemy, and LinkedIn Learning are supported platforms.",
+    "source_doc": "training_materials.md",
+    "difficulty": "hard",
+    "type": "specific_detail"
+  },
+  {
+    "question": "How do I apply for conference attendance funding?",
+    "expected_answer": "Submit a request to your manager at least 4 weeks in advance.",
+    "source_doc": "training_materials.md",
+    "difficulty": "hard",
+    "type": "procedure"
+  },
+  {
+    "question": "What is the maximum reimbursement for a conference?",
+    "expected_answer": "Pre-approval is required for conferences over $1,000; there is no stated per-conference maximum.",
+    "source_doc": "expense_policy.md",
+    "difficulty": "hard",
+    "type": "numeric_precision"
+  },
+  {
+    "question": "Is there a requirement to share learnings after training?",
+    "expected_answer": "Not found",
+    "source_doc": null,
+    "difficulty": "hard",
+    "type": "out_of_scope"
+  },
+  {
+    "question": "What is ApexTech's core mission?",
+    "expected_answer": "To empower businesses through innovative technology solutions.",
+    "source_doc": "company_wiki.md",
+    "difficulty": "easy",
+    "type": "factual"
+  },
+  {
+    "question": "When was ApexTech founded?",
+    "expected_answer": "ApexTech was founded in 2010.",
+    "source_doc": "company_wiki.md",
+    "difficulty": "easy",
+    "type": "factual"
+  },
+  {
+    "question": "Where is ApexTech headquartered?",
+    "expected_answer": "San Francisco, California.",
+    "source_doc": "company_wiki.md",
+    "difficulty": "easy",
+    "type": "factual"
+  },
+  {
+    "question": "How many employees does ApexTech have?",
+    "expected_answer": "Approximately 500 employees.",
+    "source_doc": "company_wiki.md",
+    "difficulty": "easy",
+    "type": "factual"
+  },
+  {
+    "question": "What are the company's core values?",
+    "expected_answer": "Innovation, Integrity, Collaboration, Customer Focus, and Continuous Learning.",
+    "source_doc": "employee_handbook.md",
+    "difficulty": "easy",
+    "type": "factual"
+  },
+  {
+    "question": "What business units exist at ApexTech?",
+    "expected_answer": "Engineering, Sales, Marketing, HR, Finance, and Operations.",
+    "source_doc": "company_wiki.md",
+    "difficulty": "hard",
+    "type": "ordered_list"
+  },
+  {
+    "question": "Does ApexTech have offices outside the US?",
+    "expected_answer": "Yes, there are offices in London and Singapore.",
+    "source_doc": "company_wiki.md",
+    "difficulty": "hard",
+    "type": "specific_detail"
+  },
+  {
+    "question": "What is the performance review cycle?",
+    "expected_answer": "Performance reviews occur twice a year: mid-year and end-of-year.",
+    "source_doc": "hr_policies.md",
+    "difficulty": "hard",
+    "type": "specific_detail"
+  },
+  {
+    "question": "How should I report a security incident?",
+    "expected_answer": "Report immediately to security@apextech.com and your manager.",
+    "source_doc": "security_policy.md",
+    "difficulty": "easy",
+    "type": "procedure"
+  },
+  {
+    "question": "What is the data classification policy?",
+    "expected_answer": "Data is classified as Public, Internal, Confidential, or Restricted.",
+    "source_doc": "security_policy.md",
+    "difficulty": "hard",
+    "type": "ordered_list"
+  },
+  {
+    "question": "Can I use public Wi-Fi for work tasks?",
+    "expected_answer": "Only with a VPN connection active.",
+    "source_doc": "security_policy.md",
+    "difficulty": "hard",
+    "type": "negation_trap"
+  },
+  {
+    "question": "What leave is available for a new parent?",
+    "expected_answer": "16 weeks of paid parental leave for primary caregivers and 4 weeks for secondary caregivers.",
+    "source_doc": "hr_policies.md",
+    "difficulty": "hard",
+    "type": "multi_part"
+  },
+  {
+    "question": "What is the employee referral bonus?",
+    "expected_answer": "Not found",
+    "source_doc": null,
+    "difficulty": "hard",
+    "type": "out_of_scope"
+  }
+]

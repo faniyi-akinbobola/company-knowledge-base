@@ -1,76 +1,81 @@
-import os
-import sys
 import subprocess
-from answer import answer_query, vector_store
-from ingest import ingest
+import sys
+import logging
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Suppress noisy third-party loggers — only show warnings/errors
+logging.getLogger("sentence_transformers").setLevel(logging.ERROR)
+logging.getLogger("httpx").setLevel(logging.ERROR)
+logging.getLogger("httpcore").setLevel(logging.ERROR)
+logging.getLogger("huggingface_hub").setLevel(logging.ERROR)
+
+from rag.answer import answer_query
+from rag.vectorstore import load_vectorstore
+from rag.ingest import ingest
 
 
-def check_vector_store():
-    """
-    Check if the vector store exists and has documents.
-    """
+def check_vector_store() -> bool:
+    """Check if the vector store exists and has documents."""
     try:
-        count = vector_store._collection.count()
-        print(f"📦 Vector store has {count} documents")
-        return count > 0  # ✅ Actually checks document count, not just directory
+        vs = load_vectorstore()
+        count = vs._collection.count()
+        if count == 0:
+            print("  Vector store is empty.")
+            return False
+        print(f" Vector store loaded — {count} chunks found.")
+        return True
     except Exception as e:
-        print(f"⚠️ Vector store check failed: {str(e)}")
+        print(f" Vector store check failed: {e}")
         return False
 
 
 def run_ingest():
-    """
-    Run the ingestion pipeline.
-    """
-    print("⚙️ Vector store not found. Running ingestion pipeline first...\n")
-    ingest()
-    print("\nIngestion complete!\n")
+    """Run the ingestion pipeline."""
+    print("🔄 Running ingestion pipeline...")
+    try:
+        ingest()
+        print(" Ingestion complete.")
+    except Exception as e:
+        print(f" Ingestion failed: {e}")
+        sys.exit(1)
 
 
 def test_pipeline():
-    """
-    Test the RAG pipeline before launching the UI.
-    """
-    print("🧪 Testing RAG pipeline...\n")
-
-    result = answer_query("What is the remote work policy?")
-
-    if result["error"]["message"]:
-        print(f"Pipeline test failed: {result['error']['message']} ({result['error']['type']})")
-        return False
-
-    print(f"✅ Answer:\n{result['answer']}\n")
-    print(f"📚 Documents Retrieved: {result['retrieval']['num_documents']}")
-    print(f"📊 Avg Similarity: {((2 - result['retrieval']['avg_similarity_score']) / 2) * 100:.2f}%")
-    print(f"🔢 Tokens: {result['tokens']['total']}")
-    print(f"💰 Cost: ${result['cost']['total_cost']:.6f}")
-    print(f"⏱️ Latency: {result['latency']:.2f}s")
-
-    return True
-
-def run_ui():
-    """
-    Launch the Chainlit UI using subprocess.
-    """
-    print("\n🚀 Launching Chainlit UI...\n")
-    subprocess.run(["chainlit", "run", "ui.py"], check=True)  # ✅ Launch as subprocess
-
-def main():
-    print("ApexTech Solutions Knowledge Base\n")
-
-    # Step 1: Check vector store — run ingest if missing
-    if not check_vector_store():
-        run_ingest()
-
-    # Step 2: Test pipeline
-    pipeline_ok = test_pipeline()
-
-    if not pipeline_ok:
-        print("Pipeline test failed. Please check your setup before launching the UI.")
+    """Smoke-test the RAG pipeline."""
+    print("\n🧪 Testing RAG pipeline...")
+    test_query = "What is the remote work policy?"
+    try:
+        result = answer_query(test_query)
+        print(f" Test query: {test_query}")
+        print(f"   Answer preview: {result['answer'][:120]}...")
+        if result["error"]["message"]:
+            print(f" Pipeline error: {result['error']['message']}")
+    except Exception as e:
+        print(f" Pipeline test failed: {e}")
         sys.exit(1)
 
-    # Step 3: Launch UI
+
+def run_ui():
+    """Launch the Chainlit UI."""
+    print("\n🚀 Launching Chainlit UI...")
+    subprocess.run(
+        ["chainlit", "run", "UI/ui.py", "--port", "8000"],
+        check=True
+    )
+
+
+def main():
+    print("🏢 ApexTech Solutions — Knowledge Base\n")
+
+    if not check_vector_store():
+        print(" Vector store not found — running ingestion...")
+        run_ingest()
+
+    test_pipeline()
     run_ui()
+
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,250 @@
+{
+  "timestamp": "20260428_105559",
+  "config": {
+    "qa_cases": 10,
+    "edge_cases": 7,
+    "use_llm_judge": true
+  },
+  "metrics": {
+    "retrieval": {
+      "recall_at_k": 90.0,
+      "precision_at_k": 100.0,
+      "mrr": 0.85
+    },
+    "generation": {
+      "answer_found_rate": 100.0,
+      "keyword_coverage": 87.23,
+      "faithfulness_score": 1.0,
+      "answer_relevance_score": 0.98,
+      "correctness_score": 0.91
+    },
+    "context": {
+      "avg_similarity_score": 0.0,
+      "context_coverage": 93.62,
+      "context_relevance": 1.0
+    },
+    "e2e": {
+      "task_success_rate": 100.0,
+      "not_found_false_positive_rate": 0.0,
+      "source_hit_rate": 90.0,
+      "llm_judge_score": 0.98
+    }
+  },
+  "qa_results": [
+    {
+      "query": "What are the remote work options available at ApexTech?",
+      "answer": "The remote work options available at ApexTech Solutions are:\n\n1. Hybrid Schedule (Most Common)\n   - Work remotely up to 3 days per week\n   - Minimum 2 days in office (typically Tuesday, Wednesday, Thursday for team collaboration)\n   - Requires manager approval\n\n2. Fully Remote\n   - 100% remote work\n   - Limited to specific roles and circumstances\n   - Requires director-level approval\n   - May require quarterly office visits\n\n3. Occasional Remote\n   - Ad-hoc remote days as needed\n   - Manager notification (not formal approval)\n   - Examples include waiting for a repair person, minor illness, or focused work day\n\nIf you need more details, you can contact People Operations at remote-work@apextech.solutions.",
+      "error": {
+        "message": null,
+        "type": null
+      },
+      "similarity_scores": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "query": "What is required to be eligible for remote work?",
+      "answer": "To be eligible for regular remote work at ApexTech Solutions, the following requirements must be met:\n\n- Completed 90-day onboarding period (for new hires)\n- Met or exceeded performance expectations\n- Role can be performed effectively remotely\n- Demonstrated self-management and accountability\n- Has reliable home internet and workspace\n- Manager approval\n\nAdditionally, new hires may request remote work during the hiring process, subject to approval by the hiring manager and director.",
+      "error": {
+        "message": null,
+        "type": null
+      },
+      "similarity_scores": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "query": "What are the password requirements at ApexTech?",
+      "answer": "The password requirements at ApexTech are:\n\n- Minimum length: 12 characters\n- Must include at least one uppercase letter\n- Must include at least one lowercase letter\n- Must include at least one number\n- Must include at least one special character (e.g., !@#$%^&*)\n- Passwords expire every 90 days (you will receive reminders)\n- Cannot reuse any of your last 5 passwords\n- Use a unique password for each system\n\nAdditionally, employees are required to use 1Password to generate and store strong passwords securely.",
+      "error": {
+        "message": null,
+        "type": null
+      },
+      "similarity_scores": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "query": "What health insurance options are available?",
+      "answer": "ApexTech offers two main health insurance options through Blue Cross Blue Shield for 2026:\n\n1. **PPO Plan (Preferred Provider Organization)**\n   - Best for: Flexibility and frequent medical needs\n   - Employee monthly premiums (example): $120 for employee only, $280 for employee + spouse, $260 for employee + children, $380 for family\n   - Coverage highlights:\n     - In-network deductible: $500 individual / $1,000 family\n     - Out-of-network deductible: $1,500 individual / $3,000 family\n     - Co-insurance: 80% paid by plan\n     - Out-of-pocket max: $3,000 individual / $6,000 family\n     - Copays: $25 primary care, $50 specialist, $75 urgent care, $250 ER visit\n   - Advantages:\n     - See any doctor (in or out of network)\n     - No referrals needed for specialists\n     - Broad provider network\n\n2. **HDHP (High Deductible Health Plan) with HSA**\n   - Best for: Healthy individuals wanting to save on premiums\n   - Employee monthly premiums (example): $60 for employee only, $160 for employee + spouse, $140 for employee + children, $220 for family\n   - Coverage highlights:\n     - Deductible: $1,500 individual / $3,000 family\n     - Co-insurance: 80% after deductible\n     - Out-of-pocket max: $5,000 individual / $10,000 family\n     - Preventive care covered 100%\n     - Other services subject to deductible then 80/20 co-insurance\n   - HSA (Health Savings Account):\n     - Company contributes $750/year for employee only or $1,500/year for family\n     - Employees can contribute additional amounts within IRS limits\n\nIf you need more details or want to enroll, you can visit benefits.apextech.com or contact benefits@apextech.solutions.",
+      "error": {
+        "message": null,
+        "type": null
+      },
+      "similarity_scores": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "query": "How do I reset my password?",
+      "answer": "To reset your password:\n\n- For your computer password:\n  1. Visit apextech.com/password-reset\n  2. Enter your company email\n  3. Answer security questions\n  4. Set a new password\n\n- For other systems:\n  - Most use Single Sign-On (SSO), so resetting your computer password resets those as well.\n  - Exceptions like the 1Password master password or some legacy systems require separate resets; contact IT for those.\n\nIf you get locked out, call IT immediately at ext. 4357 for assistance.",
+      "error": {
+        "message": null,
+        "type": null
+      },
+      "similarity_scores": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "query": "How do I submit an expense report?",
+      "answer": "To submit an expense report at ApexTech Solutions, follow these steps using Expensify:\n\n1. **Create Expense Report**\n   - Log in to expensify.apextech.com (SSO)\n   - Click \"New Report\"\n   - Name the report descriptively (e.g., \"Travel - Chicago Client Visit - Feb 2026\")\n\n2. **Add Expenses**\n   - Click \"Add Expense\"\n   - Upload receipt (photo or PDF)\n   - Fill in required details:\n     - Date of expense\n     - Merchant name\n     - Amount\n     - Category (Travel, Meals, Supplies, etc.)\n     - Business purpose (be specific)\n     - Attendees (if meal/entertainment)\n   - Repeat for all expenses\n\n3. **Submit for Approval**\n   - Review all expenses for accuracy\n   - Add any additional notes if needed\n   - Click \"Submit Report\"\n   - The report will be routed to your manager for approval\n\n4. **Track Status**\n   - Receive email notifications for approvals or rejections\n   - View status in Expensify dashboard\n   - Reimbursement will be made via direct deposit upon approval\n\nMake sure to submit your expense report within 30 days of the expense date to avoid late fees or denial.",
+      "error": {
+        "message": null,
+        "type": null
+      },
+      "similarity_scores": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "query": "What should I do on my first day at ApexTech?",
+      "answer": "On your first day at ApexTech, you can expect the following:\n\n- Attend a structured orientation covering tools, people, and processes.\n- Meet your onboarding team including your manager, onboarding buddy, People Ops specialist, and IT support.\n- Complete system access and account setups with IT support.\n- Participate in the Day One agenda designed to introduce you to the company and your role.\n- Bring any questions you have to onboarding office hours or ask your buddy, manager, or use the #ask-anything channel.\n- Begin benefits enrollment if not already completed (due within 30 days).\n- Get familiar with your workspace and equipment.\n\nIf you need assistance, you can contact onboarding@apextech.solutions.",
+      "error": {
+        "message": null,
+        "type": null
+      },
+      "similarity_scores": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "query": "What is the process for requesting a leave of absence?",
+      "answer": "The company documentation does not explicitly detail a specific \"leave of absence\" request process. However, based on the information about vacation and sick leave requests, the inferred process would be:\n\n- Submit your leave request through the HR Portal (portal.apextech.solutions/leave).\n- For planned leaves (e.g., vacation or medical appointments), provide at least two weeks' notice when possible.\n- For sick leave, notify your manager via Slack or email before 9:30 AM on the day of illness.\n- For extended absences (more than 2 consecutive days), contact HR directly at hr@apextech.solutions.\n- Medical certificates may be required for absences over 3 days or certain patterns, submitted to hr-confidential@apextech.solutions within 5 business days of return.\n- Rush requests (less than 48 hours' notice) require director-level approval.\n\nFor specific leave of absence types beyond vacation or sick leave, contacting HR at hr@apextech.solutions or ext. 2100 is recommended.",
+      "error": {
+        "message": null,
+        "type": null
+      },
+      "similarity_scores": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "query": "What training programs are available for new employees?",
+      "answer": "New employees at ApexTech have access to several training programs, including:\n\n- **Mandatory Foundational Training:**  \n  - Cybersecurity Awareness Training (must be completed within 30 days of hire)  \n  - Other mandatory courses assigned through the Learning Portal\n\n- **Role-Specific Training:** Skill development tailored to the employee's job function\n\n- **Optional Professional Development:** Access to a $1,500 annual professional development budget for courses, certifications, conferences, and more\n\n- **Internal Learning Opportunities:**  \n  - ApexTech Academy: Free internal courses  \n  - Lunch & Learns: Weekly informal learning sessions  \n  - Mentorship Program: Pairing with senior employees  \n  - Leadership Development: Emerging Leaders cohort program\n\n- **Training Delivery Methods:**  \n  - Self-Paced Online (BambooHR, Udemy, Coursera)  \n  - Instructor-Led Virtual Sessions via Zoom  \n  - In-Person Workshops (quarterly at offices)  \n  - On-the-Job Training (shadowing, mentorship, projects)\n\nNew employees can track and manage their training through the Learning Portal at learning.apextech.com. For support, they can contact training@apextech.solutions or join the #learning Slack channel.",
+      "error": {
+        "message": null,
+        "type": null
+      },
+      "similarity_scores": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "query": "What does ApexTech Solutions do?",
+      "answer": "ApexTech Solutions is a leading provider of cloud software and AI-driven automation tools. The company helps businesses transform their operations through technology by offering product lines such as:\n\n- CloudOps Platform\n- AI Automation Suite\n- DevSecOps Tools\n\nThey serve over 5,000 customers across more than 40 countries, empowering businesses with scalable cloud technologies and AI-driven solutions.",
+      "error": {
+        "message": null,
+        "type": null
+      },
+      "similarity_scores": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  ],
+  "edge_results": [
+    {
+      "query": "hey there",
+      "type": "edge_case",
+      "answer": "Hello! Welcome to ApexTech Solutions. How can I assist you today? Whether you have questions about IT support, HR policies, onboarding, benefits, or anything else, I'm here to help!",
+      "error": {
+        "message": null,
+        "type": null
+      }
+    },
+    {
+      "query": "good morning",
+      "type": "edge_case",
+      "answer": "Good morning! How can I assist you today? Whether you have questions about company policies, onboarding, IT support, or anything else, I'm here to help.",
+      "error": {
+        "message": null,
+        "type": null
+      }
+    },
+    {
+      "query": "What is the stock price of ApexTech?",
+      "type": "edge_case",
+      "answer": "I could not find that information in the company documentation.",
+      "error": {
+        "message": null,
+        "type": null
+      }
+    },
+    {
+      "query": "What is the salary range for a Senior Engineer?",
+      "type": "edge_case",
+      "answer": "I could not find that information in the company documentation.",
+      "error": {
+        "message": null,
+        "type": null
+      }
+    },
+    {
+      "query": "Can you compare ApexTech benefits to Google?",
+      "type": "edge_case",
+      "answer": "I could not find that information in the company documentation. \n\nHowever, I can provide a detailed overview of ApexTech's benefits if that would help you. Let me know!",
+      "error": {
+        "message": null,
+        "type": null
+      }
+    },
+    {
+      "query": "tell me about company policies",
+      "type": "edge_case",
+      "answer": "Certainly! Here's an overview of key company policies at ApexTech Solutions:\n\n- **Remote Work Policy**: Supports flexible arrangements including hybrid (up to 3 days remote/week), fully remote (specific roles with director approval), and occasional remote days. Emphasizes balance between productivity and collaboration.\n\n- **Leave Policies**: \n  - Paid Time Off (PTO): 20 vacation days for planned time off.\n  - Sick Leave: 10 days for illness or medical appointments.\n\n- **Working Hours & Code of Conduct**: Standard office hours are Monday to Friday, 8:30 AM to 5:30 PM. Core in-office days for hybrid workers are typically Tuesday to Thursday.\n\n- **Performance & Career Development**:\n  - Weekly or bi-weekly 1:1 meetings with managers are encouraged.\n  - Promotions are based on sustained performance, business needs, and manager advocacy, decided during bi-annual review cycles.\n  - Internal department transfers are allowed after 12 months in the current role.\n\n- **Employee Recognition**: Awards such as the Customer Impact Award include bonuses, extra vacation days, and special recognition.\n\nFor detailed information or specific questions, you can contact People Operations at people-ops@apextech.solutions or visit the company wiki and related documents.",
+      "error": {
+        "message": null,
+        "type": null
+      }
+    },
+    {
+      "query": "What is the remote work policy?",
+      "type": "edge_case",
+      "answer": "The Remote Work Policy at ApexTech Solutions includes the following key points:\n\n- **Policy Statement:** Supports flexible and remote work arrangements to balance productivity, personal well-being, and company culture.\n\n- **Remote Work Options:**\n  - **Hybrid Schedule:** Work remotely up to 3 days per week; minimum 2 days in office (usually Tues/Wed/Thurs); requires manager approval.\n  - **Fully Remote:** 100% remote work for specific roles; requires director-level approval; may need quarterly office visits.\n  - **Occasional Remote:** Ad-hoc remote days with manager notification (no formal approval needed).\n\n- **Workcations:** Require advance approval; guidelines cover working from different locations, tax implications, and international travel restrictions.\n\n- **Mixing Work and Vacation:** Discouraged; use PTO to fully unplug. If working during vacation, \"workcation\" approval is needed.\n\n- **Office Attendance:** Managers can require in-office presence on remote days for important meetings or business needs, with reasonable notice.\n\n- **Equipment:** Home printing requires IT Portal request; office printing available when on-site.\n\n- **Communication & Collaboration:** Emphasis on maintaining team bonding and company culture despite remote work.\n\n- **Contact for Support:** \n  - Email: remote-work@apextech.solutions\n  - Slack: #remote-work\n  - IT Support: ext. 4357\n  - HR: ext. 2100\n\nLet me know if you need details on any specific aspect!",
+      "error": {
+        "message": null,
+        "type": null
+      }
+    }
+  ]
+}

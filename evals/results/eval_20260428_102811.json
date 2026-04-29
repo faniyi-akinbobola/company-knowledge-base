@@ -1,0 +1,185 @@
+{
+  "timestamp": "20260428_102811",
+  "config": {
+    "qa_cases": 10,
+    "edge_cases": 7,
+    "use_llm_judge": false
+  },
+  "metrics": {
+    "retrieval": {
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "mrr": 0.0
+    },
+    "generation": {
+      "answer_found_rate": 0.0,
+      "keyword_coverage": 0.0
+    },
+    "context": {
+      "avg_similarity_score": 0.0,
+      "context_coverage": 0.0
+    },
+    "e2e": {
+      "task_success_rate": 0.0,
+      "not_found_false_positive_rate": 0.0,
+      "source_hit_rate": 0.0
+    }
+  },
+  "qa_results": [
+    {
+      "query": "What are the remote work options available at ApexTech?",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      },
+      "similarity_scores": []
+    },
+    {
+      "query": "What is required to be eligible for remote work?",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      },
+      "similarity_scores": []
+    },
+    {
+      "query": "What are the password requirements at ApexTech?",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      },
+      "similarity_scores": []
+    },
+    {
+      "query": "What health insurance options are available?",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      },
+      "similarity_scores": []
+    },
+    {
+      "query": "How do I reset my password?",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      },
+      "similarity_scores": []
+    },
+    {
+      "query": "How do I submit an expense report?",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      },
+      "similarity_scores": []
+    },
+    {
+      "query": "What should I do on my first day at ApexTech?",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      },
+      "similarity_scores": []
+    },
+    {
+      "query": "What is the process for requesting a leave of absence?",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      },
+      "similarity_scores": []
+    },
+    {
+      "query": "What training programs are available for new employees?",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      },
+      "similarity_scores": []
+    },
+    {
+      "query": "What does ApexTech Solutions do?",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      },
+      "similarity_scores": []
+    }
+  ],
+  "edge_results": [
+    {
+      "query": "hey there",
+      "type": "edge_case",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      }
+    },
+    {
+      "query": "good morning",
+      "type": "edge_case",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      }
+    },
+    {
+      "query": "What is the stock price of ApexTech?",
+      "type": "edge_case",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      }
+    },
+    {
+      "query": "What is the salary range for a Senior Engineer?",
+      "type": "edge_case",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      }
+    },
+    {
+      "query": "Can you compare ApexTech benefits to Google?",
+      "type": "edge_case",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      }
+    },
+    {
+      "query": "tell me about company policies",
+      "type": "edge_case",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      }
+    },
+    {
+      "query": "What is the remote work policy?",
+      "type": "edge_case",
+      "answer": null,
+      "error": {
+        "message": "Collection expecting embedding with dimension of 1536, got 384",
+        "type": "InvalidArgumentError"
+      }
+    }
+  ]
+}
