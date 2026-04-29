@@ -146,46 +146,96 @@ All LLM calls (UI + evals) are automatically traced to LangSmith when `LANGCHAIN
 
 ---
 
+
 ## 🚀 Deploying to HuggingFace Spaces
 
-### 1. Create a new Space
+### Step 1 — Create a new Space
 
-Go to [huggingface.co/new-space](https://huggingface.co/new-space):
+1. Go to [huggingface.co/new-space](https://huggingface.co/new-space)
+2. Fill in:
+   - **Owner**: your HuggingFace username or org
+   - **Space name**: e.g. `apextech-knowledge-base`
+   - **License**: choose one (e.g. MIT)
+   - **SDK**: select **Docker**
+   - **Visibility**: **Private** (this is an internal tool)
+   - **Hardware**: CPU Basic — free tier (app peaks at ~470MB RAM ✅)
+3. Click **Create Space**
 
-- **SDK**: Docker
-- **Visibility**: Private (internal tool)
-- **Hardware**: CPU Basic (free) — the app peaks at ~470MB RAM, well within limits
+---
 
-### 2. Push this repo to your Space
+### Step 2 — Add your OpenAI API key as a Secret
+
+> ⚠️ Do this **before** pushing code — the build needs it to run the LLM.
+
+1. In your Space, go to **Settings** (top right)
+2. Scroll to **Repository secrets**
+3. Click **New secret** and add:
+
+| Name | Value |
+|------|-------|
+| `OPENAI_API_KEY` | `sk-...` your OpenAI key |
+| `LANGCHAIN_API_KEY` | `lsv2_...` *(optional — enables LangSmith tracing)* |
+| `LANGCHAIN_TRACING_V2` | `true` *(optional)* |
+| `LANGCHAIN_PROJECT` | `company-knowledge-base` *(optional)* |
+
+---
+
+### Step 3 — Push your code to the Space
+
+Run these commands from your project root:
 
 ```bash
-# Add your Space as a remote (replace YOUR_USERNAME and SPACE_NAME)
+# One-time setup: add the Space as a git remote
+# Replace YOUR_USERNAME and SPACE_NAME with your actual values
 git remote add space https://huggingface.co/spaces/YOUR_USERNAME/SPACE_NAME
 
-# Push master to the Space
+# Push your master branch to the Space
 git push space master
 ```
 
-HuggingFace will automatically build the Docker image and launch the app.
-
-### 3. Set Secrets
-
-In your Space → **Settings → Repository secrets**, add:
-
-| Secret                 | Value                               |
-| ---------------------- | ----------------------------------- |
-| `OPENAI_API_KEY`       | `sk-...`                            |
-| `LANGCHAIN_API_KEY`    | `lsv2_...` (optional, for tracing)  |
-| `LANGCHAIN_TRACING_V2` | `true` (optional)                   |
-| `LANGCHAIN_PROJECT`    | `company-knowledge-base` (optional) |
-
-### What happens at build time
-
-The `Dockerfile` does the following during image build (no secrets needed):
-
-1. Installs all Python dependencies via `uv sync`
-2. Downloads and caches both HuggingFace models (`all-MiniLM-L6-v2`, `ms-marco-MiniLM-L-6-v2`)
-3. Runs `rag/ingest.py` to build the ChromaDB vector store from the raw documents
-4. Bakes everything into the image → **zero cold-start delay**
+> If you get an authentication error, use a HuggingFace token:
+> `git remote set-url space https://YOUR_HF_TOKEN@huggingface.co/spaces/YOUR_USERNAME/SPACE_NAME`
+> Generate a token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) with **write** access.
 
 ---
+
+### Step 4 — Monitor the build
+
+1. Go to your Space page on HuggingFace
+2. Click the **Build logs** tab
+3. The build will:
+   - Install all Python dependencies (~3–5 min)
+   - Download the HuggingFace embedding + reranker models (~2 min)
+   - Run `rag/ingest.py` to build the vector database (~1 min)
+   - Start the Chainlit server on port 7860
+4. When the build is complete the Space shows **Running** (green)
+5. Click the app URL to open the assistant
+
+Total first-build time: **~10–15 minutes**. Subsequent pushes are faster due to Docker layer caching.
+
+---
+
+### Step 5 — Updating the app
+
+Every time you push to the `space` remote, HuggingFace rebuilds and redeploys automatically:
+
+```bash
+# Make your changes, commit, then:
+git push space master
+```
+
+---
+
+### What the Dockerfile does at build time
+
+| Step | What happens | Secrets needed? |
+|------|-------------|-----------------|
+| `uv sync` | Installs all Python dependencies | No |
+| Download models | Pulls `all-MiniLM-L6-v2` + `ms-marco-MiniLM-L-6-v2` from HuggingFace | No |
+| `rag/ingest.py` | Builds ChromaDB vector store from raw `.md` + `.csv` docs | No |
+| Runtime start | Launches Chainlit on port 7860 | `OPENAI_API_KEY` ✅ |
+
+Models and vector DB are **baked into the image** — zero cold-start delay.
+
+---
+
