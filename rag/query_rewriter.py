@@ -22,6 +22,8 @@ _rewriter_llm = init_chat_model(
     model="gpt-4o-mini",
     model_provider="openai",
     temperature=0,
+    timeout=15,       # rewriter is fast — 15s is generous, fail quickly if stuck
+    max_retries=2,    # fewer retries than main LLM — it's non-critical (falls back to raw query)
 )
 
 _REWRITE_SYSTEM = """You are a search query optimizer for an internal company knowledge base.

@@ -73,7 +73,7 @@ def main():
         print(" Vector store not found — running ingestion...")
         run_ingest()
 
-    # test_pipeline()
+    test_pipeline()
     run_ui()
 
 

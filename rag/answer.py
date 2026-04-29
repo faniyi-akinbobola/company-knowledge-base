@@ -1,32 +1,34 @@
 from dotenv import load_dotenv
 load_dotenv()
 
-import re
 from rag.hybrid_search import hybrid_search
-from rag.query_rewriter import rewrite_query
+from rag.query_rewriter import rewrite_query, _rewriter_llm
 from llm.llm import llm
 from llm.prompt import SYSTEM_PROMPT_TEMPLATE
+from langchain_core.messages import HumanMessage, SystemMessage
 
-# Patterns that indicate a conversational greeting — no retrieval needed
-_GREETING_RE = re.compile(
-    r"^\s*(hey(\s+there)?|hi(\s+there)?|hello(\s+there)?|howdy|greetings|"
-    r"good\s*(morning|afternoon|evening)|sup|what'?s\s+up)[!.,?\s]*$",
-    re.IGNORECASE,
-)
+_GREETING_CLASSIFIER_SYSTEM = """You are a message classifier. 
+Determine if the user's message is purely a social greeting with no information request.
 
-_GREETING_RESPONSE = (
-    "Hello! 👋 I'm the ApexTech Solutions AI Assistant.\n\n"
-    "I can help you with information about:\n"
-    "- Company policies (remote work, expenses, HR, security)\n"
-    "- Employee benefits and onboarding\n"
-    "- IT support and training resources\n"
-    "- The company directory and internal contacts\n\n"
-    "What would you like to know?"
-)
+Examples of greetings: hi, hello, hey, hey there, good morning, good day, good evening, 
+howdy, what's up, yo, sup, greetings, bonjour, hola, salut, morning, evening, afternoon,
+how are you, how's it going, how do you do, nice to meet you, pleased to meet you.
+
+NOT a greeting: "hi, what is the leave policy?", "hello can you help me with expenses?"
+
+Reply with exactly one word: YES if it is a greeting, NO if it is not."""
 
 
 def _is_greeting(query: str) -> bool:
-    return bool(_GREETING_RE.match(query.strip()))
+    """Use the LLM to reliably classify any greeting in any phrasing or language."""
+    try:
+        response = _rewriter_llm.invoke([
+            SystemMessage(content=_GREETING_CLASSIFIER_SYSTEM),
+            HumanMessage(content=query.strip()),
+        ])
+        return response.content.strip().upper().startswith("YES")
+    except Exception:
+        return False  # safe fallback — never skip retrieval on error
 
 
 def answer_query(query: str, history: list = None) -> dict:
@@ -39,13 +41,20 @@ def answer_query(query: str, history: list = None) -> dict:
 
     error = {"message": None, "type": None}
 
-    # Short-circuit: greetings don't need retrieval or sources
+    # Short-circuit: greetings — let the LLM respond warmly via prompt rule 6,
+    # but skip retrieval so no sources are attached.
     if _is_greeting(query):
+        greeting_prompt = SYSTEM_PROMPT_TEMPLATE.format(
+            context="",
+            question=query,
+        )
+        greeting_response = llm.invoke([{"role": "user", "content": greeting_prompt}])
         return {
             "query": query,
             "rewritten_query": query,
-            "answer": _GREETING_RESPONSE,
+            "answer": greeting_response.content.strip(),
             "retrieval": {"documents": [], "avg_similarity_score": 0.0},
+            "is_greeting": True,
             "error": error,
         }
 
@@ -101,6 +110,7 @@ def answer_query(query: str, history: list = None) -> dict:
             "query": query,
             "rewritten_query": rewritten,
             "answer": answer,
+            "is_greeting": False,
             "retrieval": {
                 "documents": retrieval_docs,
                 "avg_similarity_score": (
@@ -118,6 +128,7 @@ def answer_query(query: str, history: list = None) -> dict:
             "query": query,
             "rewritten_query": query,
             "answer": "",
+            "is_greeting": False,
             "retrieval": {"documents": [], "avg_similarity_score": 0.0},
             "error": error,
         }

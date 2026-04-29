@@ -59,10 +59,11 @@ async def handle_message(message: cl.Message):
     # ✅ Send answer
     await cl.Message(content=result["answer"]).send()
 
-    # ✅ Only show sources if answer was found in docs
+    # ✅ Only show sources for real doc-grounded answers (not greetings, not "not found")
     not_found = "i could not find" in result["answer"].lower()
+    is_greeting = result.get("is_greeting", False)
 
-    if not not_found and result["retrieval"]["documents"]:
+    if not is_greeting and not not_found and result["retrieval"]["documents"]:
         seen = set()
         unique_sources = []
         for doc in result["retrieval"]["documents"]:
