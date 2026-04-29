@@ -26,13 +26,7 @@ COPY . .
 ENV PYTHONPATH=/app
 
 # Pre-download HuggingFace models so they're baked in (zero cold-start delay)
-RUN .venv/bin/python -c "\
-    from sentence_transformers import SentenceTransformer, CrossEncoder; \
-    print('Downloading embedding model...'); \
-    SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2'); \
-    print('Downloading cross-encoder...'); \
-    CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2'); \
-    print('Models ready.')"
+RUN .venv/bin/python -c "from sentence_transformers import SentenceTransformer, CrossEncoder; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2'); CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2'); print('Models ready.')"
 
 # Build the ChromaDB vector store from raw documents
 # No OPENAI_API_KEY needed — ingest only uses local HuggingFace embeddings
