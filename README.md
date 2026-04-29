@@ -19,10 +19,7 @@ Hybrid Search                        ← Dense (Chroma) + Sparse (BM25) fused vi
 Cross-Encoder Reranker               ← ms-marco-MiniLM-L-6-v2 reranks top-k chunks
   │
   ▼
-LLM (gpt-4o-mini) + System Prompt   ← Strict grounding instructions
-  │
-  ▼
-Grounding Verifier (Self-RAG)        ← Post-generation hallucination check
+LLM (gpt-4.1-mini) + System Prompt  ← Grounded answer from retrieved context
   │
   ▼
 Answer + Sources
@@ -91,6 +88,7 @@ cp .env.example .env
 ```
 
 Edit `.env`:
+
 ```env
 OPENAI_API_KEY=sk-...
 LANGCHAIN_TRACING_V2=true
@@ -105,9 +103,9 @@ uv run python main.py
 ```
 
 This will:
+
 - ✅ Check if the vector store exists
 - ✅ Auto-ingest documents if not found
-- ✅ Smoke-test the RAG pipeline
 - ✅ Launch the Chainlit UI at `http://localhost:8000`
 
 ---
@@ -127,19 +125,19 @@ uv run python evals/runners/run_evals.py --mode ci
 
 ### Latest eval results
 
-| Metric | Score | CI Threshold |
-|--------|-------|-------------|
-| recall@k | 87.5% | — |
-| precision@k | 98.0% | — |
-| MRR | 0.77 | — |
-| answer_found_rate | 85.0% | — |
-| faithfulness | 0.81 | — |
-| answer_relevance | 0.85 | — |
-| correctness | 0.62 | — |
-| task_success_rate | 80.4% | ≥ 80% ✅ |
-| unanswerable_awareness | 100% | ≥ 70% ✅ |
-| not_found_false_positive_rate | 8.9% | ≤ 10% ✅ |
-| llm_judge_score | 0.83 | ≥ 0.70 ✅ |
+| Metric                        | Score | CI Threshold |
+| ----------------------------- | ----- | ------------ |
+| recall@k                      | 87.5% | —            |
+| precision@k                   | 98.0% | —            |
+| MRR                           | 0.77  | —            |
+| answer_found_rate             | 85.0% | —            |
+| faithfulness                  | 0.81  | —            |
+| answer_relevance              | 0.85  | —            |
+| correctness                   | 0.62  | —            |
+| task_success_rate             | 80.4% | ≥ 80% ✅     |
+| unanswerable_awareness        | 100%  | ≥ 70% ✅     |
+| not_found_false_positive_rate | 8.9%  | ≤ 10% ✅     |
+| llm_judge_score               | 0.83  | ≥ 0.70 ✅    |
 
 ---
 
@@ -148,4 +146,3 @@ uv run python evals/runners/run_evals.py --mode ci
 All LLM calls (UI + evals) are automatically traced to LangSmith when `LANGCHAIN_TRACING_V2=true` is set. No extra code required. View traces at [smith.langchain.com](https://smith.langchain.com).
 
 ---
-
