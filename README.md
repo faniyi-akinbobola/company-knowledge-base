@@ -1,3 +1,13 @@
+---
+title: ApexTech Knowledge Base
+emoji: 🏢
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🏢 ApexTech Solutions — Company Knowledge Base
 
 An internal AI-powered assistant that allows ApexTech employees to query company documentation using natural language. Built with **RAG (Retrieval-Augmented Generation)**, it retrieves relevant information from internal documents and generates accurate, sourced answers.
