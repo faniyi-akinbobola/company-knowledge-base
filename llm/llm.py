@@ -8,4 +8,6 @@ llm = init_chat_model(
     model_provider="openai",
     temperature=0.2,
     max_tokens=4096,
+    timeout=30,       
+    max_retries=3,    
 )
