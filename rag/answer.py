@@ -1,20 +1,53 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+import re
 from rag.hybrid_search import hybrid_search
 from rag.query_rewriter import rewrite_query
 from llm.llm import llm
 from llm.prompt import SYSTEM_PROMPT_TEMPLATE
 
+# Patterns that indicate a conversational greeting — no retrieval needed
+_GREETING_RE = re.compile(
+    r"^\s*(hey(\s+there)?|hi(\s+there)?|hello(\s+there)?|howdy|greetings|"
+    r"good\s*(morning|afternoon|evening)|sup|what'?s\s+up)[!.,?\s]*$",
+    re.IGNORECASE,
+)
+
+_GREETING_RESPONSE = (
+    "Hello! 👋 I'm the ApexTech Solutions AI Assistant.\n\n"
+    "I can help you with information about:\n"
+    "- Company policies (remote work, expenses, HR, security)\n"
+    "- Employee benefits and onboarding\n"
+    "- IT support and training resources\n"
+    "- The company directory and internal contacts\n\n"
+    "What would you like to know?"
+)
+
+
+def _is_greeting(query: str) -> bool:
+    return bool(_GREETING_RE.match(query.strip()))
+
 
 def answer_query(query: str, history: list = None) -> dict:
     """
-    Full RAG pipeline: raw query → rewrite → hybrid search → LLM → answer
+    Full RAG pipeline: raw query → rewrite → hybrid search → LLM → answer.
+    Greetings are short-circuited — no retrieval, no LLM cost, no sources shown.
     """
     if history is None:
         history = []
 
     error = {"message": None, "type": None}
+
+    # Short-circuit: greetings don't need retrieval or sources
+    if _is_greeting(query):
+        return {
+            "query": query,
+            "rewritten_query": query,
+            "answer": _GREETING_RESPONSE,
+            "retrieval": {"documents": [], "avg_similarity_score": 0.0},
+            "error": error,
+        }
 
     try:
         # Step 1 — Rewrite query for better retrieval

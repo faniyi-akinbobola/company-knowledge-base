@@ -6,12 +6,12 @@ def chunk_document(documents, chunk_size: int = 1000, chunk_overlap: int = 200):
     """
     Two-pass markdown-aware chunking.
 
-    Pass 1 — MarkdownHeaderTextSplitter (# and ## only):
-        Splits on top-level section boundaries.  Deliberately skips ### so that
-        subsections (e.g. each core value under "## Core Values") stay in the
-        same parent chunk and are reachable together via overlap.
+    Pass 1 — MarkdownHeaderTextSplitter (#, ## and ###):
+        Splits on section boundaries at all three header levels.
         strip_headers=False keeps header text in the chunk content so BM25 and
         dense search can match on section names ("Core Values", "Innovation", …).
+        Every sub-chunk also gets its parent ## header prepended from metadata
+        so BM25 can locate subsections by their parent section name.
 
     Pass 2 — RecursiveCharacterTextSplitter:
         Sections larger than chunk_size are split further with overlap so no

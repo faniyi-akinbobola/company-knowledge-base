@@ -19,3 +19,7 @@ data/vector_db/
 #vector database files
 *.db
 *.sqlite
+
+# Eval result artifacts — keep folder via .gitkeep, ignore run outputs
+evals/results/*.json
+
