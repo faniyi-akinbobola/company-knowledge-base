@@ -131,14 +131,14 @@ These are grounded in the company documentation.
 97. How do I report a workplace conduct violation?
 98. What is the dress code policy?
 99. How does the performance review cycle work?
-100. What is a Performance Improvement Plan (PIP)?
+100.  What is a Performance Improvement Plan (PIP)?
 
 ---
 
 ## ❌ Part 2 — Questions the assistant should NOT be able to answer (50 questions)
 
 The assistant should respond with:  
-*"I could not find that information in the company documentation."*
+_"I could not find that information in the company documentation."_
 
 ### 💸 Salaries & Compensation (not in docs)
 

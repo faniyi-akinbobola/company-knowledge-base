@@ -146,7 +146,6 @@ All LLM calls (UI + evals) are automatically traced to LangSmith when `LANGCHAIN
 
 ---
 
-
 ## 🚀 Deploying to HuggingFace Spaces
 
 ### Step 1 — Create a new Space
@@ -171,12 +170,12 @@ All LLM calls (UI + evals) are automatically traced to LangSmith when `LANGCHAIN
 2. Scroll to **Repository secrets**
 3. Click **New secret** and add:
 
-| Name | Value |
-|------|-------|
-| `OPENAI_API_KEY` | `sk-...` your OpenAI key |
-| `LANGCHAIN_API_KEY` | `lsv2_...` *(optional — enables LangSmith tracing)* |
-| `LANGCHAIN_TRACING_V2` | `true` *(optional)* |
-| `LANGCHAIN_PROJECT` | `company-knowledge-base` *(optional)* |
+| Name                   | Value                                               |
+| ---------------------- | --------------------------------------------------- |
+| `OPENAI_API_KEY`       | `sk-...` your OpenAI key                            |
+| `LANGCHAIN_API_KEY`    | `lsv2_...` _(optional — enables LangSmith tracing)_ |
+| `LANGCHAIN_TRACING_V2` | `true` _(optional)_                                 |
+| `LANGCHAIN_PROJECT`    | `company-knowledge-base` _(optional)_               |
 
 ---
 
@@ -228,14 +227,13 @@ git push space master
 
 ### What the Dockerfile does at build time
 
-| Step | What happens | Secrets needed? |
-|------|-------------|-----------------|
-| `uv sync` | Installs all Python dependencies | No |
-| Download models | Pulls `all-MiniLM-L6-v2` + `ms-marco-MiniLM-L-6-v2` from HuggingFace | No |
-| `rag/ingest.py` | Builds ChromaDB vector store from raw `.md` + `.csv` docs | No |
-| Runtime start | Launches Chainlit on port 7860 | `OPENAI_API_KEY` ✅ |
+| Step            | What happens                                                         | Secrets needed?     |
+| --------------- | -------------------------------------------------------------------- | ------------------- |
+| `uv sync`       | Installs all Python dependencies                                     | No                  |
+| Download models | Pulls `all-MiniLM-L6-v2` + `ms-marco-MiniLM-L-6-v2` from HuggingFace | No                  |
+| `rag/ingest.py` | Builds ChromaDB vector store from raw `.md` + `.csv` docs            | No                  |
+| Runtime start   | Launches Chainlit on port 7860                                       | `OPENAI_API_KEY` ✅ |
 
 Models and vector DB are **baked into the image** — zero cold-start delay.
 
 ---
-
