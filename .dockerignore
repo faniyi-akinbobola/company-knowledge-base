@@ -1,0 +1,12 @@
+.venv
+.env
+.git
+.gitignore
+__pycache__
+*.py[oc]
+.DS_Store
+data/vector_db
+evals/results/*.json
+docs/
+*.md
+spaces.yml
