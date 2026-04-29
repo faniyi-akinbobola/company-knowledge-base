@@ -27,12 +27,12 @@ COPY . .
 # Pre-download HuggingFace models into the image so cold starts are instant.
 # Models are cached to /root/.cache/huggingface which is copied to final stage.
 RUN uv run python -c "\
-from sentence_transformers import SentenceTransformer, CrossEncoder; \
-print('Downloading embedding model...'); \
-SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2'); \
-print('Downloading cross-encoder model...'); \
-CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2'); \
-print('Models ready.')"
+    from sentence_transformers import SentenceTransformer, CrossEncoder; \
+    print('Downloading embedding model...'); \
+    SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2'); \
+    print('Downloading cross-encoder model...'); \
+    CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2'); \
+    print('Models ready.')"
 
 # Build the vector DB from the raw documents so it's baked into the image.
 # No OPENAI_API_KEY needed here — ingest only uses local HuggingFace embeddings.

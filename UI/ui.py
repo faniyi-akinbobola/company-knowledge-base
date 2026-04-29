@@ -74,7 +74,7 @@ async def handle_message(message: cl.Message):
                 unique_sources.append(clean)
 
         if unique_sources:
-            sources_text = "### 📚 Sources\n"
+            sources_text = "###  Sources\n"
             for i, source in enumerate(unique_sources, 1):
                 sources_text += f"{i}. {source}\n"
             await cl.Message(content=sources_text).send()
